@@ -168,7 +168,25 @@ CL-USER 34 : 3 > (swap `(1 2 3 4 5) 2 4)
 
 
 
+-- Задача 13: Определите функцию, удаляющую в исходном списке все повторные вхождения элементов.
 
+myMember :: Integral a => Integer -> [Integer] -> Bool
+myMember el [] = False
+myMember el (head:tail) = 
+	if el == head
+		then True
+	else (myMember el tail)
+
+deleteRepeates :: [Integer] -> [Integer]
+deleteRepeates [] = []
+deleteRepeates (head:tail) = 
+	(\result -> if (myMember head tail)
+					then result
+				else head:result
+	) (deleteRepeates tail)
+
+-- Input: main = print $ (deleteRepeates [1, 1, 2, 4, 5, 2, 1])
+-- Output: [4, 5, 2, 1]
 
 
 
