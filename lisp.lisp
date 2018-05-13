@@ -158,6 +158,12 @@ CL-USER 34 : 3 > (swap `(1 2 3 4 5) 2 4)
 ;;;out:(RET-SELF (1 2 3)) 
 
 
+;;; #1
+;;; Определите макрос, который возвращает свой вызов.
+(defmacroself (&whole f &rest x) `(quote ,f))
+(print (self))
+(print (self nil))
+(print (self '(1234)))
 
 
 
