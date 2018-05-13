@@ -125,6 +125,45 @@ CL-USER 34 : 3 > (swap `(1 2 3 4 5) 2 4)
 (1 4 3 2 5)
 
 
+;;;2. Генератор натуральных чисел
+(defunget-num ()
+
+    (let ((x 0))
+
+          (lambda () (setq x (+ x 1)))))
+
+(setq g (get-num))
+
+(print 
+)
+
+
+;;;out:1
+
+(print (funcall g))
+
+;;;out:2
+
+
+
+;;;#12
+;;;Определите функцию, которая возвращает в качестве значения свой вызов.
+
+(defunret-self (args)
+
+    (list 'ret-self args))
+
+(print (ret-self '(123)))
+
+;;;out:(RET-SELF (1 2 3)) 
+
+
+
+
+
+
+
+
 
 
 
